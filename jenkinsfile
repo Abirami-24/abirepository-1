@@ -9,11 +9,7 @@ pipeline{
 		
 	}
 	stages {
-	       stage('run the python code'){
-			steps {
-				sh 'node App.js'
-			}
-		}
+	       
 		
 		
                 stage('run the python code'){
