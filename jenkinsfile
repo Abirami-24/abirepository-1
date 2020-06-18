@@ -9,17 +9,12 @@ pipeline{
 		
 	}
 	stages {
-		stage('Display the path of jenkins'){
+	       stage('run the python code'){
 			steps {
-				echo "this is building an job"
-				echo "PATH = ${PATH}"
+				sh 'node App.js'
 			}
 		}
-		stage('check the source code'){
-			steps{
-				checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/Nirmalraaj/Jenkins.git']]])
-			}
-		}
+		
 		
                 stage('run the python code'){
 			steps {
