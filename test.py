@@ -1,2 +1,2 @@
-print("hii triggerr")
+print("hii trigger")
 print("djfkddfdf")
