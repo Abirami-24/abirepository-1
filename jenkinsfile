@@ -1,10 +1,10 @@
 
 node{
    stage('SCM Checkout'){
-     git 'https://github.com/bhavanimahalingam/testjob'
+     git 'https://github.com/Abirami-24/abirepository-1'
    }
    stage('Deploy to Tomcat'){
-      sshagent(['tomcat_jenkins']){
+      sshagent(['tomcatkey']){
       sh 'scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/webapp/target/*.war  ec2-user@34.202.233.126:apache-tomcat-7.0.104/webapps/'
       }
   }
