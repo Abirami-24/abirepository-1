@@ -3,6 +3,13 @@ node{
    stage('SCM Checkout'){
      git 'https://github.com/Abirami-24/abirepository-1'
    }
+   stage('Compile-Package'){
+      // Get maven home path
+    def mvn_home = 'maven'
+    withEnv( ["PATH+MAVEN=${tool mvn_home}/bin"] ) {
+     sh "mvn clean install"
+    }
+   }
    stage('Deploy to Tomcat'){
       sshagent(['tomactkey']){
       sh 'scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/webapp/target/*.war  ec2-user@3.88.59.170:tomcat7/webapps/'
